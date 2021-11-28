@@ -604,14 +604,12 @@ function handleSpecialWeaponAttacks(damages=[], damage_types=[], properties, set
         }
     }
     
-    if (character.hasClass("Cleric")) {
-        // Cleric: Divine Strike
-        if (character.hasClassFeature("Divine Strike") &&
-            character.getSetting("cleric-divine-strike", true)) {
-            const cleric_level = character.getClassLevel("Cleric");
-            damages.push(cleric_level < 14 ? "1d8" : "2d8");
-            damage_types.push("Divine Strike");
-        }
+    // Cleric: Divine Strike
+    if (character.hasClassFeature("Divine Strike") &&
+        character.getSetting("cleric-divine-strike", true)) {
+        const cleric_level = character.getClassLevel("Cleric");
+        damages.push(cleric_level < 14 ? "1d8" : "2d8");
+        damage_types.push("Divine Strike");
     }
 
     if (character.hasClass("Fighter")) {
